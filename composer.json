@@ -1,0 +1,16 @@
+{
+    "name": "dam1r89/translatable-migration",
+    "description": "Create a migration file for translatable resources",
+    "authors": [
+        {
+            "name": "Damir Miladinov",
+            "email": "damir89@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "dam1r89\\": "src/dam1r89/"
+        }
+    },
+    "require": {}
+}

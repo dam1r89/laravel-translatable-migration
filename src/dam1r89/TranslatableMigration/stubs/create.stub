@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class DummyClass extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('DummyTable', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
+
+        Schema::create('DummyKey_translations', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('DummyKey_id')->unsigned();
+
+            // $table->string('name');
+
+            $table->string('locale')->index();
+
+            $table->unique(['DummyKey_id','locale']);
+            $table->foreign('DummyKey_id')->references('id')->on('DummyTable')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('DummyTable');
+        Schema::drop('DummyKey_translations');
+    }
+}
