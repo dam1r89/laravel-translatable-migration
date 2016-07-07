@@ -38,7 +38,7 @@ class DummyClass extends Migration
      */
     public function down()
     {
-        Schema::drop('DummyTable');
         Schema::drop('DummyKey_translations');
+        Schema::drop('DummyTable');
     }
 }
